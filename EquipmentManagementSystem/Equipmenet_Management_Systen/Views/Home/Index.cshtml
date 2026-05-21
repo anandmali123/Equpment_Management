@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Equipmenet_Management_Systen.Models.Equipment>
+
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="container-fluid mt-4">
+
+    <h2 class="mb-4">Equipment Dashboard</h2>
+
+    <div class="card shadow">
+        <div class="card-header bg-dark text-white">
+            Equipment Details
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead class="table-light">
+                    <tr>
+                        <th>Equipment</th>
+                        <th>Code</th>
+                        <th>Department</th>
+                        <th>Service Provider</th>
+                        <th>Contact Person</th>
+                        <th>Mobile</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.EquipmentName</td>
+                            <td>@item.EquipmentCode</td>
+                            <td>@item.Department?.Name</td>
+                            <td>@item.ServiceProvider?.CompanyName</td>
+                            <td>@item.ServiceProvider?.ContactPerson</td>
+                            <td>@item.ServiceProvider?.MobileNumber</td>
+                            <td>@item.Status</td>
+                        </tr>
+                    }
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+
+</div>

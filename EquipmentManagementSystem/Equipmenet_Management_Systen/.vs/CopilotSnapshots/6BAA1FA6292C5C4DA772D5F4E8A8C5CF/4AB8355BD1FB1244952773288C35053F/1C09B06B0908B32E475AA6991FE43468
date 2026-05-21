@@ -1,0 +1,22 @@
+﻿@page
+@model Equipmenet_Management_Systen.Pages.Equipment.IndexModel
+@{
+    ViewData["Title"] = "Equipment Management";
+}
+
+<div class="container mt-4">
+    <div class="row mb-3">
+        <div class="col-md-8">
+            <h1>Equipment Management</h1>
+        </div>
+        <div class="col-md-4 text-end">
+            <a asp-page="/Equipment/Create" class="btn btn-success">Add New Equipment</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <p class="text-muted">Equipment list will be displayed here.</p>
+        </div>
+    </div>
+</div>

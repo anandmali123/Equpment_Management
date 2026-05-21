@@ -1,0 +1,339 @@
+    @page
+    @model Equipmenet_Management_Systen.Pages.Dashboard.IndexModel
+    @using Microsoft.AspNetCore.Identity
+    @using Equipmenet_Management_Systen.Models
+
+    @{
+        ViewData["Title"] = "Dashboard";
+    }
+
+    @inject UserManager<ApplicationUser> UserManager
+
+    <div class="container-fluid mt-4">
+        <!-- Header Section -->
+        <div class="row mb-4">
+            <div class="col-md-8">
+                <h1 class="h3">Welcome, @Model.CurrentUser?.FullName! 👋</h1>
+                <p class="text-muted">
+                    Email: <strong>@Model.CurrentUser?.Email</strong> | 
+                    Role: <span class="badge bg-info">@(string.Join(", ", Model.UserRoles))</span>
+                    @if (Model.CurrentUser?.LastLoginAt.HasValue == true)
+                    {
+                        <br />
+                        <small>Last login: @Model.CurrentUser.LastLoginAt.Value.ToString("MMM dd, yyyy hh:mm tt")</small>
+                    }
+                </p>
+            </div>
+            <div class="col-md-4 text-end">
+                @if (Model.UserRoles.Contains("PlatformHead") || Model.UserRoles.Contains("PurchaseManager") || Model.UserRoles.Contains("MaintenanceIncharge"))
+                {
+                    <a asp-page="/Admin/UserManagement" class="btn btn-outline-secondary me-2">👥 Manage Users</a>
+                }
+                <a asp-page="/Account/Manage/Index" class="btn btn-outline-primary me-2">⚙️ Profile</a>
+                <form method="post" style="display:inline;">
+                    <button type="submit" asp-page-handler="Logout" class="btn btn-danger">Sign Out</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Dashboard Statistics - Role Based -->
+        <div class="row">
+            @if (Model.UserRoles.Contains("PlatformHead"))
+            {
+                <div class="col-md-3">
+                    <div class="card bg-primary text-white mb-3 shadow-sm">
+                        <div class="card-body">
+                            <h6 class="card-title">Total Users</h6>
+                            <h2 class="mb-0">@Model.TotalUsers</h2>
+                            <small>in system</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card bg-success text-white mb-3 shadow-sm">
+                        <div class="card-body">
+                            <h6 class="card-title">Active Users</h6>
+                            <h2 class="mb-0">@Model.ActiveUsers</h2>
+                            <small>currently active</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card bg-info text-white mb-3 shadow-sm">
+                        <div class="card-body">
+                            <h6 class="card-title">Total Equipment</h6>
+                            <h2 class="mb-0">@Model.TotalEquipment</h2>
+                            <small>registered</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card bg-warning text-white mb-3 shadow-sm">
+                        <div class="card-body">
+                            <h6 class="card-title">Active Equipment</h6>
+                            <h2 class="mb-0">@Model.ActiveEquipment</h2>
+                            <small>in use</small>
+                        </div>
+                    </div>
+                </div>
+            }
+            else if (Model.UserRoles.Contains("PurchaseManager"))
+            {
+                <div class="col-md-3">
+                    <div class="card bg-primary text-white mb-3 shadow-sm">
+                        <div class="card-body">
+                            <h6 class="card-title">Total Users</h6>
+                            <h2 class="mb-0">@Model.TotalUsers</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card bg-success text-white mb-3 shadow-sm">
+                        <div class="card-body">
+                            <h6 class="card-title">Active Users</h6>
+                            <h2 class="mb-0">@Model.ActiveUsers</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card bg-warning text-white mb-3 shadow-sm">
+                        <div class="card-body">
+                            <h6 class="card-title">Pending Maintenance</h6>
+                            <h2 class="mb-0">@Model.PendingMaintenance</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card bg-danger text-white mb-3 shadow-sm">
+                        <div class="card-body">
+                            <h6 class="card-title">To Monitor</h6>
+                            <h2 class="mb-0">@Model.AssignedUsers.Count</h2>
+                            <small>incharge users</small>
+                        </div>
+                    </div>
+                </div>
+            }
+            else if (Model.UserRoles.Contains("MaintenanceIncharge"))
+            {
+                <div class="col-md-4">
+                    <div class="card bg-info text-white mb-3 shadow-sm">
+                        <div class="card-body">
+                            <h6 class="card-title">Total Users Recruited</h6>
+                            <h2 class="mb-0">@Model.AssignedUsers.Count</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card bg-success text-white mb-3 shadow-sm">
+                        <div class="card-body">
+                            <h6 class="card-title">Total System Users</h6>
+                            <h2 class="mb-0">@Model.TotalUsers</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card bg-primary text-white mb-3 shadow-sm">
+                        <div class="card-body">
+                            <h6 class="card-title">Active Users</h6>
+                            <h2 class="mb-0">@Model.ActiveUsers</h2>
+                        </div>
+                    </div>
+                </div>
+            }
+            else if (Model.UserRoles.Contains("Head"))
+            {
+                <div class="col-md-3">
+                    <div class="card bg-primary text-white mb-3 shadow-sm">
+                        <div class="card-body">
+                            <h6 class="card-title">Department Equipment</h6>
+                            <h2 class="mb-0">@Model.TotalEquipment</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card bg-success text-white mb-3 shadow-sm">
+                        <div class="card-body">
+                            <h6 class="card-title">Active Equipment</h6>
+                            <h2 class="mb-0">@Model.ActiveEquipment</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card bg-info text-white mb-3 shadow-sm">
+                        <div class="card-body">
+                            <h6 class="card-title">Recruited Users</h6>
+                            <h2 class="mb-0">@Model.AssignedUsers.Count</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card bg-warning text-white mb-3 shadow-sm">
+                        <div class="card-body">
+                            <h6 class="card-title">Recent Maintenance</h6>
+                            <h2 class="mb-0">@Model.RecentRequests.Count</h2>
+                        </div>
+                    </div>
+                </div>
+            }
+            else if (Model.UserRoles.Contains("User"))
+            {
+                <div class="col-md-4">
+                    <div class="card bg-primary text-white mb-3 shadow-sm">
+                        <div class="card-body">
+                            <h6 class="card-title">My Equipment</h6>
+                            <h2 class="mb-0">@Model.TotalEquipment</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card bg-success text-white mb-3 shadow-sm">
+                        <div class="card-body">
+                            <h6 class="card-title">Active Equipment</h6>
+                            <h2 class="mb-0">@Model.ActiveEquipment</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card bg-info text-white mb-3 shadow-sm">
+                        <div class="card-body">
+                            <h6 class="card-title">Requests</h6>
+                            <h2 class="mb-0">@Model.RecentRequests.Count</h2>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <!-- Content Area - Role Based -->
+        <div class="row mt-4">
+            <div class="col-lg-8">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-light">
+                        <h5 class="mb-0">📋 Recent Activities</h5>
+                    </div>
+                    <div class="card-body">
+                        @if (Model.RecentRequests?.Count > 0)
+                        {
+                            <div class="table-responsive">
+                                <table class="table table-hover mb-0">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th>Equipment</th>
+                                            <th>Type</th>
+                                            <th>Date</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var request in Model.RecentRequests)
+                                        {
+                                            <tr>
+                                                <td><strong>@request.Equipment?.EquipmentName</strong></td>
+                                                <td><small class="text-muted">Maintenance</small></td>
+                                                <td><small>@request.RequestDate.ToString("MMM dd, yyyy")</small></td>
+                                                <td>
+                                                    @if (request.Status == "Completed")
+                                                    {
+                                                        <span class="badge bg-success">@request.Status</span>
+                                                    }
+                                                    else if (request.Status == "In Progress")
+                                                    {
+                                                        <span class="badge bg-warning">@request.Status</span>
+                                                    }
+                                                    else
+                                                    {
+                                                        <span class="badge bg-secondary">@request.Status</span>
+                                                    }
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="alert alert-info mb-0">No recent activities</div>
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-light">
+                        <h5 class="mb-0">⚡ Quick Actions</h5>
+                    </div>
+                    <div class="card-body">
+                        @if (Model.UserRoles.Contains("PlatformHead") || Model.UserRoles.Contains("Head") || Model.UserRoles.Contains("MaintenanceIncharge"))
+                        {
+                            <a asp-page="/Admin/UserManagement" class="btn btn-outline-primary btn-sm w-100 mb-2">👥 Manage Users</a>
+                        }
+
+                        @if (Model.UserRoles.Contains("PlatformHead"))
+                        {
+                            <a asp-page="/Equipment/Index" class="btn btn-outline-info btn-sm w-100 mb-2">🔧 View All Equipment</a>
+                        }
+                        else if (Model.UserRoles.Contains("Head"))
+                        {
+                            <a asp-page="/Equipment/Index" class="btn btn-outline-info btn-sm w-100 mb-2">🔧 Department Equipment</a>
+                            <a asp-page="/Equipment/Create" class="btn btn-outline-success btn-sm w-100 mb-2">➕ Add Equipment</a>
+                        }
+                        else if (Model.UserRoles.Contains("User"))
+                        {
+                            <a asp-page="/Equipment/Index" class="btn btn-outline-info btn-sm w-100 mb-2">🔧 My Equipment</a>
+                        }
+
+                        @if (Model.UserRoles.Contains("PlatformHead") || Model.UserRoles.Contains("PurchaseManager") || Model.UserRoles.Contains("MaintenanceIncharge"))
+                        {
+                            <a asp-page="/Department/Index" class="btn btn-outline-warning btn-sm w-100 mb-2">🏢 Departments</a>
+                        }
+                    </div>
+                </div>
+
+                @if ((Model.UserRoles.Contains("Head") || Model.UserRoles.Contains("MaintenanceIncharge")) && Model.AssignedUsers.Any())
+                {
+                    <div class="card shadow-sm mt-3">
+                        <div class="card-header bg-light">
+                            <h5 class="mb-0">👤 Your Team</h5>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-group list-group-flush">
+                                @foreach (var user in Model.AssignedUsers.Take(5))
+                                {
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <strong>@user.FullName</strong>
+                                            <br />
+                                            <small class="text-muted">@user.Email</small>
+                                        </div>
+                                        @if (user.IsActive)
+                                        {
+                                            <span class="badge bg-success rounded-pill">Active</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge bg-danger rounded-pill">Inactive</span>
+                                        }
+                                    </li>
+                                }
+                            </ul>
+                            @if (Model.AssignedUsers.Count > 5)
+                            {
+                                <a asp-page="/Admin/UserManagement" class="btn btn-link btn-sm mt-2">View all team members →</a>
+                            }
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+    @section Scripts {
+        <script>
+            // Auto-refresh dashboard every 5 minutes
+            setTimeout(() => {
+                location.reload();
+            }, 300000);
+        </script>
+    }

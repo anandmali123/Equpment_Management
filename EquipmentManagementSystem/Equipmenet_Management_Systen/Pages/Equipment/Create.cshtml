@@ -1,0 +1,147 @@
+@page
+@model Equipmenet_Management_Systen.Pages.Equipment.CreateModel
+@using Equipmenet_Management_Systen.Models
+
+@{
+    ViewData["Title"] = "Add New Equipment";
+}
+
+<div class="container-fluid mt-4">
+    <div class="row mb-4">
+        <div class="col-md-8">
+            <h1 class="h3">➕ Add New Equipment</h1>
+            <p class="text-muted">Register a new equipment item in the system</p>
+        </div>
+        <div class="col-md-4 text-end">
+            <a asp-page="./Index" class="btn btn-outline-secondary">← Back to Equipment</a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card shadow-sm">
+                <div class="card-header bg-light">
+                    <h5 class="mb-0">Equipment Details</h5>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="Equipment.EquipmentName" class="form-label">Equipment Name *</label>
+                                <input asp-for="Equipment.EquipmentName" class="form-control" placeholder="e.g., Oscilloscope" required />
+                                <span asp-validation-for="Equipment.EquipmentName" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="Equipment.EquipmentCode" class="form-label">Equipment Code *</label>
+                                <input asp-for="Equipment.EquipmentCode" class="form-control" placeholder="e.g., EQ-001" required />
+                                <span asp-validation-for="Equipment.EquipmentCode" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Equipment.Description" class="form-label">Description</label>
+                            <textarea asp-for="Equipment.Description" class="form-control" rows="3" placeholder="Equipment description..."></textarea>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="Equipment.DepartmentId" class="form-label">Department *</label>
+                                <select asp-for="Equipment.DepartmentId" asp-items="Model.DepartmentList" class="form-select" required>
+                                    <option value="">-- Select Department --</option>
+                                </select>
+                                <span asp-validation-for="Equipment.DepartmentId" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="Equipment.ServiceProviderId" class="form-label">Service Provider</label>
+                                <select asp-for="Equipment.ServiceProviderId" asp-items="Model.ServiceProviderList" class="form-select">
+                                    <option value="">-- Select Service Provider --</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="Equipment.PurchaseDate" class="form-label">Purchase Date</label>
+                                <input asp-for="Equipment.PurchaseDate" type="date" class="form-control" />
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="Equipment.Location" class="form-label">Location</label>
+                                <input asp-for="Equipment.Location" class="form-control" placeholder="e.g., Lab A, Building 1" />
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="Equipment.Value" class="form-label">Value (₹)</label>
+                                <input asp-for="Equipment.Value" type="number" class="form-control" step="0.01" placeholder="0.00" />
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="Equipment.AssignedUserId" class="form-label">Assign To User</label>
+                                <select asp-for="Equipment.AssignedUserId" asp-items="Model.UserList" class="form-select">
+                                    <option value="">-- Select User --</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="Equipment.WarrantyExpiryDate" class="form-label">Warranty Expiry Date</label>
+                                <input asp-for="Equipment.WarrantyExpiryDate" type="date" class="form-control" />
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="Equipment.ManufacturerName" class="form-label">Manufacturer</label>
+                                <input asp-for="Equipment.ManufacturerName" class="form-control" placeholder="e.g., Siemens" />
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="Equipment.ManufacturerModel" class="form-label">Model</label>
+                                <input asp-for="Equipment.ManufacturerModel" class="form-control" placeholder="e.g., XYZ-2024" />
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="Equipment.SerialNumber" class="form-label">Serial Number</label>
+                                <input asp-for="Equipment.SerialNumber" class="form-control" placeholder="Serial number" />
+                            </div>
+                        </div>
+
+                        <div class="d-flex gap-2">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="bi bi-plus-circle"></i> Add Equipment
+                            </button>
+                            <a asp-page="./Index" class="btn btn-outline-secondary">Cancel</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <div class="card-header bg-light">
+                    <h5 class="mb-0">ℹ️ Information</h5>
+                </div>
+                <div class="card-body">
+                    <p><strong>Equipment Code:</strong> Used for identification</p>
+                    <p><strong>Department:</strong> Assigns ownership</p>
+                    <p><strong>Service Provider:</strong> For maintenance</p>
+                    <p><strong>User:</strong> Direct user responsibility</p>
+                    <hr />
+                    <p class="mb-0 text-muted small">
+                        All fields marked with * are required.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,129 @@
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
+using Equipmenet_Management_Systen.Data;
+using Equipmenet_Management_Systen.Models;
+
+namespace Equipmenet_Management_Systen.Pages.Equipment
+{
+    [Authorize]
+    public class IndexModel : PageModel
+    {
+        private readonly ApplicationDbContext _context;
+        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly ILogger<IndexModel> _logger;
+
+        public IList<Equipment> Equipment { get; set; } = new List<Equipment>();
+        public ApplicationUser? CurrentUser { get; set; }
+        public IList<string>? UserRoles { get; set; }
+
+        [BindProperty(SupportsGet = true)]
+        public string SearchTerm { get; set; } = string.Empty;
+
+        [BindProperty(SupportsGet = true)]
+        public string StatusFilter { get; set; } = string.Empty;
+
+        [BindProperty(SupportsGet = true)]
+        public int? DepartmentFilter { get; set; }
+
+        public IndexModel(ApplicationDbContext context, UserManager<ApplicationUser> userManager, ILogger<IndexModel> logger)
+        {
+            _context = context;
+            _userManager = userManager;
+            _logger = logger;
+        }
+
+        public async Task OnGetAsync()
+        {
+            try
+            {
+                CurrentUser = await _userManager.GetUserAsync(HttpContext.User);
+                UserRoles = await _userManager.GetRolesAsync(CurrentUser);
+
+                IQueryable<Equipment> query = _context.Equipments.Include(e => e.Department).Include(e => e.AssignedUser);
+
+                // Filter based on role
+                if (UserRoles.Contains("User") || UserRoles.Contains("ClientHead"))
+                {
+                    // Regular users see only their assigned equipment
+                    query = query.Where(e => e.AssignedUserId == CurrentUser.Id);
+                }
+                else if (UserRoles.Contains("DepartmentHead"))
+                {
+                    // Department heads see their department's equipment
+                    query = query.Where(e => e.DepartmentId == CurrentUser.DepartmentId);
+                }
+                // Platform Head sees all
+
+                // Apply search filter
+                if (!string.IsNullOrWhiteSpace(SearchTerm))
+                {
+                    query = query.Where(e => 
+                        e.EquipmentName.Contains(SearchTerm) || 
+                        e.EquipmentCode.Contains(SearchTerm) ||
+                        e.SerialNumber.Contains(SearchTerm));
+                }
+
+                // Apply status filter
+                if (!string.IsNullOrWhiteSpace(StatusFilter))
+                {
+                    query = query.Where(e => e.Status == StatusFilter);
+                }
+
+                // Apply department filter (Platform Head only)
+                if (DepartmentFilter.HasValue && UserRoles.Contains("PlatformHead"))
+                {
+                    query = query.Where(e => e.DepartmentId == DepartmentFilter);
+                }
+
+                Equipment = await query.OrderByDescending(e => e.CreatedAt).ToListAsync();
+
+                _logger.LogInformation($"Equipment list loaded for {CurrentUser?.Email}");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error loading equipment list");
+            }
+        }
+
+        public async Task<IActionResult> OnPostDeleteAsync(int id)
+        {
+            try
+            {
+                CurrentUser = await _userManager.GetUserAsync(HttpContext.User);
+                UserRoles = await _userManager.GetRolesAsync(CurrentUser);
+
+                // Only Platform Head or Department Head can delete
+                if (!UserRoles.Contains("PlatformHead") && !UserRoles.Contains("DepartmentHead"))
+                {
+                    return Forbid();
+                }
+
+                var equipment = await _context.Equipments.FindAsync(id);
+                if (equipment == null)
+                {
+                    return NotFound();
+                }
+
+                // Department Head can only delete their department's equipment
+                if (UserRoles.Contains("DepartmentHead") && equipment.DepartmentId != CurrentUser.DepartmentId)
+                {
+                    return Forbid();
+                }
+
+                _context.Equipments.Remove(equipment);
+                await _context.SaveChangesAsync();
+
+                _logger.LogInformation($"Equipment '{equipment.EquipmentName}' deleted by {CurrentUser?.Email}");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error deleting equipment");
+            }
+
+            return RedirectToPage();
+        }
+    }
+}

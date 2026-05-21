@@ -1,0 +1,12 @@
+﻿{
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=(localdb)\\mssqllocaldb;Database=aspnet-Equipmenet_Management_Systen-ef05c7fb-a08f-4c05-a158-f6bde29ae741;Trusted_Connection=True;MultipleActiveResultSets=true"
+  },
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "AllowedHosts": "*"
+}

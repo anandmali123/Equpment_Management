@@ -1,0 +1,18 @@
+﻿using Microsoft.AspNetCore.Identity;
+
+namespace Equipmenet_Management_Systen.Models
+{
+    public class ApplicationUser : IdentityUser
+    {
+        public string FullName { get; set; }
+        public int? DepartmentId { get; set; }
+        public DateTime CreatedDate { get; set; } = DateTime.Now;
+        public bool IsActive { get; set; } = true;
+
+        // Navigation properties
+        public virtual Department Department { get; set; }
+        public virtual ICollection<MaintenanceRequest> MaintenanceRequests { get; set; } = new List<MaintenanceRequest>();
+        public virtual ICollection<CalibrationHistory> CalibrationHistories { get; set; } = new List<CalibrationHistory>();
+        public DateTime CreatedAt { get; internal set; }
+    }
+}

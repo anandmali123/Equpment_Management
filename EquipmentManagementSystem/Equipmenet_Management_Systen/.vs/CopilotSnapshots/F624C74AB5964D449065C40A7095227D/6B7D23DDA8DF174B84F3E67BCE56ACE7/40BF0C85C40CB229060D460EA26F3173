@@ -1,0 +1,68 @@
+﻿using Equipmenet_Management_Systen.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
+
+namespace Equipmenet_Management_Systen.Data
+{
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    {
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+            : base(options)
+        {
+        }
+
+        public DbSet<Department> Departments { get; set; }
+        public DbSet<Equipment> Equipments { get; set; }
+        public DbSet<ServiceProvider> ServiceProviders { get; set; }
+        public DbSet<CalibrationHistory> CalibrationHistories { get; set; }
+        public DbSet<MaintenanceRequest> MaintenanceRequests { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            // Configure relationships
+            modelBuilder.Entity<ApplicationUser>()
+                .HasOne(u => u.Department)
+                .WithMany(d => d.Users)
+                .HasForeignKey(u => u.DepartmentId)
+                .OnDelete(DeleteBehavior.SetNull);
+
+            modelBuilder.Entity<Equipment>()
+                .HasOne(e => e.Department)
+                .WithMany(d => d.Equipments)
+                .HasForeignKey(e => e.DepartmentId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<Equipment>()
+                .HasOne(e => e.ServiceProvider)
+                .WithMany(sp => sp.Equipments)
+                .HasForeignKey(e => e.ServiceProviderId)
+                .OnDelete(DeleteBehavior.SetNull);
+
+            modelBuilder.Entity<Equipment>()
+                .HasOne(e => e.AssignedUser)
+                .WithMany()
+                .HasForeignKey(e => e.AssignedUserId)
+                .OnDelete(DeleteBehavior.SetNull);
+
+            modelBuilder.Entity<CalibrationHistory>()
+                .HasOne(ch => ch.Equipment)
+                .WithMany(e => e.CalibrationHistories)
+                .HasForeignKey(ch => ch.EquipmentId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<MaintenanceRequest>()
+                .HasOne(mr => mr.Equipment)
+                .WithMany(e => e.MaintenanceRequests)
+                .HasForeignKey(mr => mr.EquipmentId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<MaintenanceRequest>()
+                .HasOne(mr => mr.AssignedProvider)
+                .WithMany(sp => sp.MaintenanceRequests)
+                .HasForeignKey(mr => mr.AssignedProviderId)
+                .OnDelete(DeleteBehavior.SetNull);
+        }
+    }
+}

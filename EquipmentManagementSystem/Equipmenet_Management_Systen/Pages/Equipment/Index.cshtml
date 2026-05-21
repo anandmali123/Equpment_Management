@@ -1,0 +1,229 @@
+@page
+@model Equipmenet_Management_Systen.Pages.Equipment.IndexModel
+@using Equipmenet_Management_Systen.Models
+@using Microsoft.AspNetCore.Identity
+@{
+    ViewData["Title"] = "Equipment Management";
+}
+
+@inject UserManager<ApplicationUser> UserManager
+
+<div class="container-fluid mt-4">
+    <!-- Header Section -->
+    <div class="row mb-4">
+        <div class="col-md-8">
+            <h1 class="h3">🔧 Equipment Management</h1>
+            <p class="text-muted">@(
+                Model.UserRoles?.Contains("User") == true ? "Your assigned equipment" :
+                Model.UserRoles?.Contains("Head") == true ? "Department equipment" :
+                "All equipment in system"
+            )</p>
+        </div>
+        <div class="col-md-4 text-end">
+            @if (Model.UserRoles?.Contains("PlatformHead") == true || Model.UserRoles?.Contains("Head") == true)
+            {
+                <a asp-page="/Equipment/Create" class="btn btn-success">➕ Add New Equipment</a>
+            }
+        </div>
+    </div>
+
+    <!-- Filters & Search -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <form method="get" class="row g-3">
+                        <div class="col-md-5">
+                            <input type="text" name="searchTerm" class="form-control" placeholder="Search by name, code, or serial..." value="@Model.SearchTerm" />
+                        </div>
+
+                        <div class="col-md-3">
+                            <select name="statusFilter" class="form-select">
+                                <option value="">-- All Status --</option>
+                                <option value="Active" selected="@(Model.StatusFilter == "Active")">Active</option>
+                                <option value="Inactive" selected="@(Model.StatusFilter == "Inactive")">Inactive</option>
+                                <option value="Maintenance" selected="@(Model.StatusFilter == "Maintenance")">Maintenance</option>
+                                <option value="Disposed" selected="@(Model.StatusFilter == "Disposed")">Disposed</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-2">
+                            <button type="submit" class="btn btn-primary w-100">🔍 Search</button>
+                        </div>
+
+                        @if (!string.IsNullOrEmpty(Model.SearchTerm) || !string.IsNullOrEmpty(Model.StatusFilter))
+                        {
+                            <div class="col-md-2">
+                                <a asp-page="/Equipment/Index" class="btn btn-outline-secondary w-100">Clear</a>
+                            </div>
+                        }
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Equipment List -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card shadow-sm">
+                <div class="card-header bg-light">
+                    <h5 class="mb-0">
+                        Equipment List
+                        <span class="badge bg-primary ms-2">@Model.Equipment.Count items</span>
+                    </h5>
+                </div>
+                <div class="card-body p-0">
+                    @if (Model.Equipment.Count > 0)
+                    {
+                        <div class="table-responsive">
+                            <table class="table table-hover mb-0">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>Equipment Name</th>
+                                        <th>Code</th>
+                                        <th>Department</th>
+                                        <th>Assigned To</th>
+                                        <th>Status</th>
+                                        <th>Value</th>
+                                        <th>Created</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var equipment in Model.Equipment)
+                                    {
+                                        <tr>
+                                            <td>
+                                                <strong>@equipment.EquipmentName</strong>
+                                                <br />
+                                                <small class="text-muted">@equipment.ManufacturerName @equipment.ManufacturerModel</small>
+                                            </td>
+                                            <td>
+                                                <code>@equipment.EquipmentCode</code>
+                                            </td>
+                                            <td>@(equipment.Department?.Name ?? "N/A")</td>
+                                            <td>@(equipment.AssignedUser?.FullName ?? "Unassigned")</td>
+                                            <td>
+                                                @if (equipment.Status == "Active")
+                                                {
+                                                    <span class="badge bg-success">Active</span>
+                                                }
+                                                else if (equipment.Status == "Maintenance")
+                                                {
+                                                    <span class="badge bg-warning">Maintenance</span>
+                                                }
+                                                else if (equipment.Status == "Inactive")
+                                                {
+                                                    <span class="badge bg-secondary">Inactive</span>
+                                                }
+                                                else
+                                                {
+                                                    <span class="badge bg-danger">Disposed</span>
+                                                }
+                                            </td>
+                                            <td>
+                                                @if (equipment.Value.HasValue)
+                                                {
+                                                    <span>₹@equipment.Value.Value.ToString("N2")</span>
+                                                }
+                                                else
+                                                {
+                                                    <span class="text-muted">-</span>
+                                                }
+                                            </td>
+                                            <td>
+                                                <small>@equipment.CreatedAt.ToString("MMM dd, yyyy")</small>
+                                            </td>
+                                            <td>
+                                                <div class="btn-group btn-group-sm" role="group">
+                                                    <a asp-page="/Equipment/Edit" asp-route-id="@equipment.Id" class="btn btn-outline-primary" title="Edit">
+                                                        ✏️
+                                                    </a>
+                                                    <a href="#" class="btn btn-outline-info" onclick="showDetails(@equipment.Id)" title="Details">
+                                                        👁️
+                                                    </a>
+                                                    @if (Model.UserRoles?.Contains("PlatformHead") == true || Model.UserRoles?.Contains("Head") == true)
+                                                    {
+                                                        <form method="post" asp-page-handler="Delete" asp-route-id="@equipment.Id" 
+                                                              onsubmit="return confirm('Delete this equipment?');" style="display:inline;">
+                                                            <button type="submit" class="btn btn-outline-danger btn-sm" title="Delete">
+                                                                🗑️
+                                                            </button>
+                                                        </form>
+                                                    }
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="alert alert-info m-3" role="alert">
+                            <i class="bi bi-info-circle"></i> 
+                            @if (string.IsNullOrEmpty(Model.SearchTerm) && string.IsNullOrEmpty(Model.StatusFilter))
+                            {
+                                <span>No equipment found. @(Model.UserRoles?.Contains("Head") == true ? "Create one to get started." : "")</span>
+                            }
+                            else
+                            {
+                                <span>No equipment matches your search criteria.</span>
+                            }
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Statistics -->
+    @if (Model.UserRoles?.Contains("PlatformHead") == true || Model.UserRoles?.Contains("Head") == true)
+    {
+        <div class="row mt-4">
+            <div class="col-md-3">
+                <div class="card bg-light">
+                    <div class="card-body text-center">
+                        <h5>Total Equipment</h5>
+                        <h2 class="text-primary">@Model.Equipment.Count</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card bg-light">
+                    <div class="card-body text-center">
+                        <h5>Active</h5>
+                        <h2 class="text-success">@Model.Equipment.Count(e => e.Status == "Active")</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card bg-light">
+                    <div class="card-body text-center">
+                        <h5>Under Maintenance</h5>
+                        <h2 class="text-warning">@Model.Equipment.Count(e => e.Status == "Maintenance")</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card bg-light">
+                    <div class="card-body text-center">
+                        <h5>Total Value</h5>
+                        <h2 class="text-info">₹@(Model.Equipment.Where(e => e.Value.HasValue).Sum(e => e.Value)?.ToString("N0") ?? "0")</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+@section Scripts {
+    <script>
+        function showDetails(equipmentId) {
+            // Implement detail view modal if needed
+            window.location.href = `/Equipment/Details/${equipmentId}`;
+        }
+    </script>
+}

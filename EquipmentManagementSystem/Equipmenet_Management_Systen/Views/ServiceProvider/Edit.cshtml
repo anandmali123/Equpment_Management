@@ -1,0 +1,123 @@
+@model Equipmenet_Management_Systen.Models.ServiceProvider
+
+@{
+    ViewData["Title"] = "Edit Service Provider";
+}
+
+<div class="container mt-4">
+    <h2>Edit Service Provider</h2>
+
+    <form asp-action="Edit" method="post">
+        <input type="hidden" asp-for="Id" />
+
+        <div class="card">
+            <div class="card-body">
+                <!-- Row 1 -->
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="CompanyName" class="form-label">Company Name <span class="text-danger">*</span></label>
+                        <input asp-for="CompanyName" class="form-control" required />
+                        <span asp-validation-for="CompanyName" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="ContactPerson" class="form-label">Contact Person</label>
+                        <input asp-for="ContactPerson" class="form-control" />
+                    </div>
+                </div>
+
+                <!-- Row 2 -->
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="Email" class="form-label">Email <span class="text-danger">*</span></label>
+                        <input asp-for="Email" type="email" class="form-control" required />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="MobileNumber" class="form-label">Mobile Number <span class="text-danger">*</span></label>
+                        <input asp-for="MobileNumber" class="form-control" required />
+                        <span asp-validation-for="MobileNumber" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <!-- Row 3 -->
+                <div class="row">
+                    <div class="col-12 mb-3">
+                        <label asp-for="Address" class="form-label">Address</label>
+                        <textarea asp-for="Address" class="form-control" rows="2"></textarea>
+                    </div>
+                </div>
+
+                <!-- Row 4 -->
+                <div class="row">
+                    <div class="col-12 mb-3">
+                        <label asp-for="ScopeOfWork" class="form-label">Scope of Work</label>
+                        <textarea asp-for="ScopeOfWork" class="form-control" rows="2"></textarea>
+                    </div>
+                </div>
+
+                <!-- Row 5 -->
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="ServiceType" class="form-label">Service Type <span class="text-danger">*</span></label>
+                        <select asp-for="ServiceType" asp-items="ViewBag.ServiceTypes" class="form-control" required>
+                            <option value="">-- Select Service Type --</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="QCProductCertification" class="form-label">QC/Product Certification</label>
+                        <input asp-for="QCProductCertification" class="form-control" />
+                    </div>
+                </div>
+
+                <!-- Row 6 -->
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="AmcStartDate" class="form-label">AMC Start Date</label>
+                        <input asp-for="AmcStartDate" type="date" class="form-control" />
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="AmcEndDate" class="form-label">AMC End Date</label>
+                        <input asp-for="AmcEndDate" type="date" class="form-control" />
+                    </div>
+                </div>
+
+                <!-- Row 7 -->
+                <div class="row">
+                    <div class="col-12 mb-3">
+                        <label asp-for="SupportedMachines" class="form-label">Supported Machines/Equipment</label>
+                        <textarea asp-for="SupportedMachines" class="form-control" rows="2" placeholder="List of equipment models supported"></textarea>
+                    </div>
+                </div>
+
+                @if (User.IsInRole("Head"))
+                {
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="ApprovalStatus" class="form-label">Approval Status</label>
+                            <select asp-for="ApprovalStatus" asp-items="ViewBag.ApprovalStatuses" class="form-control">
+                                <option value="">-- Select Status --</option>
+                            </select>
+                        </div>
+                    </div>
+                }
+            </div>
+
+            <div class="card-footer">
+                <button type="submit" class="btn btn-success btn-lg">
+                    <i class="bi bi-check-circle"></i> Update Service Provider
+                </button>
+                <a asp-action="Index" class="btn btn-secondary btn-lg">
+                    <i class="bi bi-x-circle"></i> Cancel
+                </a>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

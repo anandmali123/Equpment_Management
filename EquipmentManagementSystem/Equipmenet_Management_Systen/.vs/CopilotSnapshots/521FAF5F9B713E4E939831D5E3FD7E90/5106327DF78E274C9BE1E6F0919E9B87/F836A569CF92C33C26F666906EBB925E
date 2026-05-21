@@ -1,0 +1,94 @@
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using Equipmenet_Management_Systen.Data;
+using Equipmenet_Management_Systen.Models;
+using Microsoft.EntityFrameworkCore;
+
+namespace Equipmenet_Management_Systen.Pages.Dashboard
+{
+    [Authorize]
+    public class IndexModel : PageModel
+    {
+        private readonly ApplicationDbContext _context;
+        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly ILogger<IndexModel> _logger;
+
+        public ApplicationUser CurrentUser { get; set; }
+        public int TotalEquipment { get; set; }
+        public int ActiveEquipment { get; set; }
+        public int PendingMaintenance { get; set; }
+        public int OverdueCalibration { get; set; }
+        public List<MaintenanceRequest> RecentRequests { get; set; } = new();
+
+        public IndexModel(
+            ApplicationDbContext context,
+            UserManager<ApplicationUser> userManager,
+            ILogger<IndexModel> logger)
+        {
+            _context = context;
+            _userManager = userManager;
+            _logger = logger;
+        }
+
+        public async Task OnGetAsync()
+        {
+            try
+            {
+                // Get current user
+                User = await _userManager.GetUserAsync(HttpContext.User);
+                if (User == null)
+                {
+                    return;
+                }
+
+                // Load user's role
+                var userRoles = await _userManager.GetRolesAsync(User);
+
+                // Get statistics based on role
+                TotalEquipment = await _context.Equipments.CountAsync();
+                ActiveEquipment = await _context.Equipments
+                    .Where(e => e.Status == "Active")
+                    .CountAsync();
+
+                PendingMaintenance = await _context.MaintenanceRequests
+                    .Where(m => m.Status == "Pending" || m.Status == "In Progress")
+                    .CountAsync();
+
+                OverdueCalibration = await _context.CalibrationHistories
+                    .Where(c => c.NextCalibrationDate < DateTime.UtcNow && !c.IsCompleted)
+                    .CountAsync();
+
+                // Get recent maintenance requests
+                RecentRequests = await _context.MaintenanceRequests
+                    .Include(m => m.Equipment)
+                    .OrderByDescending(m => m.RequestDate)
+                    .Take(5)
+                    .ToListAsync();
+
+                _logger.LogInformation($"Dashboard loaded for user: {User.Email}");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error loading dashboard");
+            }
+        }
+
+        public async Task OnPostLogoutAsync()
+        {
+            try
+            {
+                // Sign out user
+                // Note: You'll need to inject SignInManager to use this
+                var signInManager = HttpContext.RequestServices.GetRequiredService<SignInManager<ApplicationUser>>();
+                await signInManager.SignOutAsync();
+
+                RedirectToPage("/Account/Login");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error during logout");
+            }
+        }
+    }
+}

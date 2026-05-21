@@ -1,0 +1,25 @@
+﻿using Microsoft.AspNetCore.Identity;
+
+namespace Equipmenet_Management_Systen.Models
+{
+    public class ApplicationUser : IdentityUser
+    {
+        public string? FullName { get; set; }
+        public int? DepartmentId { get; set; }
+        public string? City { get; set; }
+        public DateTime CreatedAt { get; set; } = DateTime.Now;
+        public bool IsActive { get; set; } = true;
+        public DateTime? LastLoginAt { get; set; }
+
+        // Role hierarchy - for tracking supervisor/manager relationships
+        public string? SupervisorId { get; set; } // Head/Manager who assigned this user
+        public string? UserRole { get; set; } // Explicitly stores the user's primary role
+
+        // Navigation properties
+        public virtual Department? Department { get; set; }
+        public virtual ApplicationUser? Supervisor { get; set; }
+        public virtual ICollection<ApplicationUser> AssignedUsers { get; set; } = new List<ApplicationUser>();
+        public virtual ICollection<MaintenanceRequest> MaintenanceRequests { get; set; } = new List<MaintenanceRequest>();
+        public virtual ICollection<CalibrationHistory> CalibrationHistories { get; set; } = new List<CalibrationHistory>();
+    }
+}

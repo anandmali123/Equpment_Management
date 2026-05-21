@@ -1,0 +1,181 @@
+﻿using Equipmenet_Management_Systen.Data;
+using Equipmenet_Management_Systen.Models;
+using Equipmenet_Management_Systen.Services;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+
+var builder = WebApplication.CreateBuilder(args);
+
+// Add services to the container.
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+
+// Configure MySQL Database
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
+
+builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+
+// Configure Identity with ApplicationUser
+builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
+{
+    options.SignIn.RequireConfirmedAccount = false;
+})
+.AddRoles<IdentityRole>()
+.AddEntityFrameworkStores<ApplicationDbContext>();
+
+// Add Services
+builder.Services.AddScoped<IEmailService, EmailService>();
+builder.Services.AddScoped<IEquipmentService, EquipmentService>();
+builder.Services.AddScoped<IServiceProviderService, ServiceProviderService>();
+
+builder.Services.AddControllersWithViews();
+builder.Services.AddRazorPages();
+
+var app = builder.Build();
+
+// Apply database migrations and seed data on startup
+using (var scope = app.Services.CreateScope())
+{
+    try
+    {
+        var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+        var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+        var userManager = scope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
+
+        // Apply pending migrations
+        await dbContext.Database.MigrateAsync();
+
+        // Ensure missing columns exist
+        try
+        {
+            await dbContext.Database.ExecuteSqlRawAsync(
+                "ALTER TABLE AspNetUsers ADD COLUMN IF NOT EXISTS City VARCHAR(100)");
+            await dbContext.Database.ExecuteSqlRawAsync(
+                "ALTER TABLE AspNetUsers ADD COLUMN IF NOT EXISTS LastLoginAt DATETIME");
+            await dbContext.Database.ExecuteSqlRawAsync(
+                "ALTER TABLE AspNetUsers ADD COLUMN IF NOT EXISTS CreatedAt DATETIME DEFAULT CURRENT_TIMESTAMP");
+            await dbContext.Database.ExecuteSqlRawAsync(
+                "ALTER TABLE AspNetUsers ADD COLUMN IF NOT EXISTS SupervisorId VARCHAR(450)");
+            await dbContext.Database.ExecuteSqlRawAsync(
+                "ALTER TABLE AspNetUsers ADD COLUMN IF NOT EXISTS UserRole VARCHAR(256)");
+
+            // Equipment table columns
+            await dbContext.Database.ExecuteSqlRawAsync(
+                "ALTER TABLE Equipments ADD COLUMN IF NOT EXISTS EquipmentCode VARCHAR(100)");
+            await dbContext.Database.ExecuteSqlRawAsync(
+                "ALTER TABLE Equipments ADD COLUMN IF NOT EXISTS Description TEXT");
+            await dbContext.Database.ExecuteSqlRawAsync(
+                "ALTER TABLE Equipments ADD COLUMN IF NOT EXISTS ManufacturerName VARCHAR(200)");
+            await dbContext.Database.ExecuteSqlRawAsync(
+                "ALTER TABLE Equipments ADD COLUMN IF NOT EXISTS ManufacturerModel VARCHAR(200)");
+            await dbContext.Database.ExecuteSqlRawAsync(
+                "ALTER TABLE Equipments ADD COLUMN IF NOT EXISTS PurchaseDate DATETIME");
+            await dbContext.Database.ExecuteSqlRawAsync(
+                "ALTER TABLE Equipments ADD COLUMN IF NOT EXISTS Value DECIMAL(18,2)");
+            await dbContext.Database.ExecuteSqlRawAsync(
+                "ALTER TABLE Equipments ADD COLUMN IF NOT EXISTS Location VARCHAR(255)");
+            await dbContext.Database.ExecuteSqlRawAsync(
+                "ALTER TABLE Equipments ADD COLUMN IF NOT EXISTS WarrantyExpiryDate DATETIME");
+            await dbContext.Database.ExecuteSqlRawAsync(
+                "ALTER TABLE Equipments ADD COLUMN IF NOT EXISTS CreatedAt DATETIME DEFAULT CURRENT_TIMESTAMP");
+            await dbContext.Database.ExecuteSqlRawAsync(
+                "ALTER TABLE Equipments ADD COLUMN IF NOT EXISTS CreatedBy VARCHAR(450)");
+            await dbContext.Database.ExecuteSqlRawAsync(
+                "ALTER TABLE Equipments ADD COLUMN IF NOT EXISTS UpdatedAt DATETIME");
+            await dbContext.Database.ExecuteSqlRawAsync(
+                "ALTER TABLE Equipments ADD COLUMN IF NOT EXISTS UpdatedBy VARCHAR(450)");
+
+            // MaintenanceRequest table columns
+            await dbContext.Database.ExecuteSqlRawAsync(
+                "ALTER TABLE MaintenanceRequests ADD COLUMN IF NOT EXISTS ApprovedAt DATETIME");
+            await dbContext.Database.ExecuteSqlRawAsync(
+                "ALTER TABLE MaintenanceRequests ADD COLUMN IF NOT EXISTS ApprovedBy VARCHAR(450)");
+            await dbContext.Database.ExecuteSqlRawAsync(
+                "ALTER TABLE MaintenanceRequests ADD COLUMN IF NOT EXISTS RejectionReason TEXT");
+
+            // CalibrationHistory table columns
+            await dbContext.Database.ExecuteSqlRawAsync(
+                "ALTER TABLE CalibrationHistory ADD COLUMN IF NOT EXISTS NextCalibrationDate DATETIME");
+            await dbContext.Database.ExecuteSqlRawAsync(
+                "ALTER TABLE CalibrationHistory ADD COLUMN IF NOT EXISTS IsCompleted TINYINT(1) DEFAULT 0");
+        }
+        catch (Exception ex)
+        {
+            var logger = scope.ServiceProvider.GetRequiredService<ILogger<Program>>();
+            logger.LogWarning(ex, "Warning adding columns - they may already exist");
+        }
+
+        // Create roles
+        string[] roles = {
+            "User",
+            "DepartmentHead",
+            "MaintenanceIncharge",
+            "PlatformHead",
+            "PurchaseManager",
+            "ClientHead"
+        };
+
+        foreach (var role in roles)
+        {
+            if (!await roleManager.RoleExistsAsync(role))
+            {
+                await roleManager.CreateAsync(new IdentityRole(role));
+            }
+        }
+
+        // Create default admin user
+        var adminEmail = "admin@equipmentmanagement.com";
+        var adminUser = await userManager.FindByEmailAsync(adminEmail);
+
+        if (adminUser == null)
+        {
+            adminUser = new ApplicationUser
+            {
+                UserName = "admin",
+                Email = adminEmail,
+                EmailConfirmed = true,
+                FullName = "System Administrator",
+                IsActive = true,
+                CreatedAt = DateTime.UtcNow
+            };
+
+            var result = await userManager.CreateAsync(adminUser, "Admin@123456");
+            if (result.Succeeded)
+            {
+                await userManager.AddToRoleAsync(adminUser, "PlatformHead");
+            }
+        }
+    }
+    catch (Exception ex)
+    {
+        var logger = scope.ServiceProvider.GetRequiredService<ILogger<Program>>();
+        logger.LogError(ex, "An error occurred during database migration or seeding");
+    }
+}
+
+// Configure the HTTP request pipeline.
+if (app.Environment.IsDevelopment())
+{
+    app.UseMigrationsEndPoint();
+}
+else
+{
+    app.UseExceptionHandler("/Home/Error");
+    app.UseHsts();
+}
+
+app.UseHttpsRedirection();
+app.UseStaticFiles();
+
+app.UseRouting();
+
+app.UseAuthentication();
+app.UseAuthorization();
+
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Dashboard}/{action=Index}/{id?}");
+
+app.MapRazorPages();
+
+app.Run();

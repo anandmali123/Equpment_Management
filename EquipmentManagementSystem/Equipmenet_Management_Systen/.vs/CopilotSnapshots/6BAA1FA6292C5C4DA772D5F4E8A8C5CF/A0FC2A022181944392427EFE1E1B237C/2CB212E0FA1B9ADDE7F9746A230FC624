@@ -1,0 +1,46 @@
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Equipmenet_Management_Systen.Models
+{
+    public class MaintenanceRequest
+    {
+        public int Id { get; set; }
+
+        public int EquipmentId { get; set; }
+
+        public string RequestedBy { get; set; }
+
+        public int? AssignedProviderId { get; set; }
+
+        public DateTime RequestDate { get; set; } = DateTime.Now;
+
+        public string Status { get; set; } = "Pending";
+
+        public decimal? EstimationAmount { get; set; }
+
+        public DateTime? CompletionDate { get; set; }
+
+        public string RequestType { get; set; }
+
+        public string Description { get; set; }
+
+        public DateTime CreatedDate { get; set; } = DateTime.Now;
+
+        // Added fields for approval workflow
+        public DateTime? ApprovedAt { get; set; }
+        public string? ApprovedBy { get; set; }
+        public string? RejectionReason { get; set; }
+
+        // Navigation properties
+        [ForeignKey("EquipmentId")]
+        public virtual Equipment Equipment { get; set; }
+
+        [ForeignKey("RequestedBy")]
+        public virtual ApplicationUser RequestedByUser { get; set; }
+
+        [ForeignKey("AssignedProviderId")]
+        public virtual ServiceProvider AssignedProvider { get; set; }
+    }
+}
+

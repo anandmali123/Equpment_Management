@@ -1,0 +1,40 @@
+﻿@page
+@model Equipmenet_Management_Systen.Pages.IndexModel
+@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="container-fluid bg-light py-5">
+    <div class="text-center mb-5">
+        <h1 class="display-4">⚙️ Equipment Management System</h1>
+        <p class="lead text-muted">Manage your equipment, maintenance, and calibration with ease</p>
+    </div>
+
+    @if (!User.Identity.IsAuthenticated)
+    {
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card shadow-lg">
+                    <div class="card-body p-5 text-center">
+                        <h2 class="mb-4">Get Started</h2>
+                        <p class="mb-4">Sign in to access the equipment management dashboard</p>
+                        <a asp-page="/Account/Login" class="btn btn-primary btn-lg me-2">Sign In</a>
+                        <a asp-page="/Account/Register" class="btn btn-success btn-lg">Create Account</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="text-center">
+            <a asp-page="/Dashboard/Index" class="btn btn-primary btn-lg">Go to Dashboard</a>
+        </div>
+    }
+</div>
+
+<style>
+    body {
+        background-color: #f5f5f5;
+    }
+</style>

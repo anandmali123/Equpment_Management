@@ -1,0 +1,113 @@
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
+using Equipmenet_Management_Systen.Data;
+using EquipmentModel = Equipmenet_Management_Systen.Models.Equipment;
+
+namespace Equipmenet_Management_Systen.Pages.Equipment
+{
+    [Authorize]
+    public class CreateModel : PageModel
+    {
+        private readonly ApplicationDbContext _context;
+        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly ILogger<CreateModel> _logger;
+
+        [BindProperty]
+        public EquipmentModel Equipment { get; set; } = new();
+
+        public SelectList? DepartmentList { get; set; }
+        public SelectList? ServiceProviderList { get; set; }
+        public SelectList? UserList { get; set; }
+        public ApplicationUser? CurrentUser { get; set; }
+        public IList<string>? UserRoles { get; set; }
+
+        public CreateModel(ApplicationDbContext context, UserManager<ApplicationUser> userManager, ILogger<CreateModel> logger)
+        {
+            _context = context;
+            _userManager = userManager;
+            _logger = logger;
+        }
+
+        public async Task OnGetAsync()
+        {
+            try
+            {
+                CurrentUser = await _userManager.GetUserAsync(HttpContext.User);
+                UserRoles = await _userManager.GetRolesAsync(CurrentUser);
+
+                // Load departments based on role
+                List<Models.Department> departments;
+                if (UserRoles.Contains("PlatformHead"))
+                {
+                    departments = await _context.Departments.ToListAsync();
+                }
+                else if (UserRoles.Contains("DepartmentHead"))
+                {
+                    departments = await _context.Departments
+                        .Where(d => d.Id == CurrentUser.DepartmentId)
+                        .ToListAsync();
+                }
+                else
+                {
+                    departments = new List<Models.Department>();
+                }
+
+                DepartmentList = new SelectList(departments, "Id", "Name");
+                ServiceProviderList = new SelectList(await _context.ServiceProviders.ToListAsync(), "Id", "Name");
+                UserList = new SelectList(await _context.Users.Where(u => u.IsActive).ToListAsync(), "Id", "FullName");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error loading equipment creation page");
+            }
+        }
+
+        public async Task<IActionResult> OnPostAsync()
+        {
+            try
+            {
+                CurrentUser = await _userManager.GetUserAsync(HttpContext.User);
+                UserRoles = await _userManager.GetRolesAsync(CurrentUser);
+
+                // Validate user has permission to create equipment
+                if (!UserRoles.Contains("PlatformHead") && !UserRoles.Contains("DepartmentHead"))
+                {
+                    return Forbid();
+                }
+
+                if (!ModelState.IsValid)
+                {
+                    await OnGetAsync();
+                    return Page();
+                }
+
+                // Set department based on role
+                if (UserRoles.Contains("DepartmentHead") && CurrentUser.DepartmentId.HasValue)
+                {
+                    Equipment.DepartmentId = CurrentUser.DepartmentId;
+                }
+
+                Equipment.CreatedAt = DateTime.UtcNow;
+                Equipment.CreatedBy = CurrentUser?.Id ?? string.Empty;
+                Equipment.Status = "Active";
+
+                _context.Equipments.Add(Equipment);
+                await _context.SaveChangesAsync();
+
+                _logger.LogInformation($"Equipment '{Equipment.EquipmentName}' created by {CurrentUser?.Email}");
+                return RedirectToPage("./Index");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error creating equipment");
+                ModelState.AddModelError("", "Error creating equipment. Please try again.");
+                await OnGetAsync();
+                return Page();
+            }
+        }
+    }
+}

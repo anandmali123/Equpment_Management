@@ -1,0 +1,66 @@
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
+
+#nullable disable
+
+namespace Equipmenet_Management_Systen.Migrations
+{
+    /// <inheritdoc />
+    [Migration("20260504050000_AddMissingColumns")]
+    public partial class AddMissingColumns : Migration
+    {
+        /// <inheritdoc />
+        protected override void Up(MigrationBuilder migrationBuilder)
+        {
+            // Add City column to AspNetUsers
+            migrationBuilder.AddColumn<string>(
+                name: "City",
+                table: "AspNetUsers",
+                type: "varchar(100)",
+                maxLength: 100,
+                nullable: true);
+
+            // Add LastLoginAt column to AspNetUsers
+            migrationBuilder.AddColumn<DateTime>(
+                name: "LastLoginAt",
+                table: "AspNetUsers",
+                type: "datetime(6)",
+                nullable: true);
+
+            // Add NextCalibrationDate column to CalibrationHistory
+            migrationBuilder.AddColumn<DateTime>(
+                name: "NextCalibrationDate",
+                table: "CalibrationHistory",
+                type: "datetime(6)",
+                nullable: true);
+
+            // Add IsCompleted column to CalibrationHistory
+            migrationBuilder.AddColumn<bool>(
+                name: "IsCompleted",
+                table: "CalibrationHistory",
+                type: "tinyint(1)",
+                nullable: false,
+                defaultValue: false);
+        }
+
+        /// <inheritdoc />
+        protected override void Down(MigrationBuilder migrationBuilder)
+        {
+            migrationBuilder.DropColumn(
+                name: "City",
+                table: "AspNetUsers");
+
+            migrationBuilder.DropColumn(
+                name: "LastLoginAt",
+                table: "AspNetUsers");
+
+            migrationBuilder.DropColumn(
+                name: "NextCalibrationDate",
+                table: "CalibrationHistory");
+
+            migrationBuilder.DropColumn(
+                name: "IsCompleted",
+                table: "CalibrationHistory");
+        }
+    }
+}

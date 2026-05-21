@@ -1,0 +1,102 @@
+@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-lg">
+                <div class="card-header bg-primary text-white">
+                    <h2 class="mb-0">Create New Account</h2>
+                </div>
+                <div class="card-body p-4">
+                    <form method="post">
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+
+                        <div class="mb-3">
+                            <label asp-for="Input.FullName" class="form-label">Full Name *</label>
+                            <input asp-for="Input.FullName" class="form-control" placeholder="Enter your full name" />
+                            <span asp-validation-for="Input.FullName" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Input.Email" class="form-label">Email Address *</label>
+                            <input asp-for="Input.Email" class="form-control" placeholder="your.email@example.com" />
+                            <span asp-validation-for="Input.Email" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Input.PhoneNumber" class="form-label">Phone Number</label>
+                            <input asp-for="Input.PhoneNumber" class="form-control" placeholder="+1 (555) 000-0000" />
+                            <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Input.City" class="form-label">City</label>
+                            <input asp-for="Input.City" class="form-control" placeholder="Enter your city" />
+                            <span asp-validation-for="Input.City" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Input.SelectedRole" class="form-label">User Role *</label>
+                            <select asp-for="Input.SelectedRole" asp-items="Model.Roles" class="form-select" id="roleSelect">
+                                <option value="">-- Select Role --</option>
+                            </select>
+                            <small id="roleDescription" class="form-text text-muted d-block mt-2"></small>
+                            <span asp-validation-for="Input.SelectedRole" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Input.Password" class="form-label">Password *</label>
+                            <input asp-for="Input.Password" type="password" class="form-control" placeholder="Minimum 6 characters" />
+                            <span asp-validation-for="Input.Password" class="text-danger"></span>
+                            <small class="form-text text-muted">Password must contain uppercase, lowercase, number, and special character</small>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Input.ConfirmPassword" class="form-label">Confirm Password *</label>
+                            <input asp-for="Input.ConfirmPassword" type="password" class="form-control" placeholder="Re-enter password" />
+                            <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100 py-2 mb-2">Create Account</button>
+                    </form>
+
+                    <hr />
+                    <p class="text-center mb-0">
+                        Already have an account? <a asp-page="./Login" class="text-primary font-weight-bold">Sign In Here</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        const roleDescriptions = {
+            'User': 'Regular user with access to assigned equipment only',
+            'Head': 'Head with access to recruit users and manage department equipment',
+            'PlatformHead': 'Platform administrator with full system access',
+            'MaintenanceIncharge': 'Handles recruitment and oversees platform head activities',
+            'PurchaseManager': 'Controls maintenance incharge and monitors all platform activities',
+            'Head': 'Client representative with limited access'
+        };
+
+        document.getElementById('roleSelect').addEventListener('change', function() {
+            const selectedRole = this.value;
+            const descriptionElement = document.getElementById('roleDescription');
+
+            if (selectedRole && roleDescriptions[selectedRole]) {
+                descriptionElement.textContent = '📋 ' + roleDescriptions[selectedRole];
+                descriptionElement.style.fontStyle = 'italic';
+                descriptionElement.style.color = '#666';
+            } else {
+                descriptionElement.textContent = '';
+            }
+        });
+    </script>
+}

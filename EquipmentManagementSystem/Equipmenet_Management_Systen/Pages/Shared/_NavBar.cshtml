@@ -1,0 +1,72 @@
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" asp-page="/Index">
+            <strong>⚙️ Equipment Management System</strong>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>`
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                @if (SignInManager.IsSignedIn(User))
+                {
+                    var currentUser = await UserManager.GetUserAsync(User);
+                    var userRoles = await UserManager.GetRolesAsync(currentUser);
+                    var userRole = userRoles.FirstOrDefault();
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="mainNav" role="button" data-bs-toggle="dropdown">
+                            📊 Main Menu
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="mainNav">
+                            <li><a class="dropdown-item" asp-page="/Dashboard/Index">Dashboard</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" asp-page="/Equipment/Index">Equipment</a></li>
+                            <li><a class="dropdown-item" asp-page="/Department/Index">Departments</a></li>
+                            <li><a class="dropdown-item" asp-page="/Maintenance/Index">Maintenance</a></li>
+                            @if (userRole == "PlatformHead" || userRole == "PurchaseManager" || userRole == "MaintenanceIncharge" || userRole == "Head")
+                            {
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" asp-controller="ServiceProvider" asp-action="Index">Service Providers</a></li>
+                            }
+                            @if (userRole == "PlatformHead" || userRole == "PurchaseManager" || userRole == "MaintenanceIncharge" || userRole == "Head")
+                            {
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" asp-page="/Admin/UserManagement">User Management</a></li>
+                            }
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="userNav" role="button" data-bs-toggle="dropdown">
+                            👤 @currentUser.FullName
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userNav">
+                            <li><a class="dropdown-item" asp-page="/Account/Manage/Index">My Profile</a></li>
+                            <li><a class="dropdown-item" asp-page="/Account/Manage/ChangePassword">Change Password</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li>
+                                <form class="dropdown-item" method="post" asp-page="/Account/Logout">
+                                    <button type="submit" class="btn btn-link text-danger p-0" style="border:0;">Sign Out</button>
+                                </form>
+                            </li>
+                        </ul>
+                    </li>
+                }
+                else
+                {
+                    <li class="nav-item">
+                        <a class="nav-link" asp-page="/Account/Login">Sign In</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-page="/Account/Register">Register</a>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,56 @@
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Equipmenet_Management_Systen.Models
+{
+    public class Equipment
+    {
+        public int Id { get; set; }
+
+        [Required]
+        public string EquipmentName { get; set; }
+
+        public string SerialNumber { get; set; }
+
+        public string Manufacturer { get; set; }
+
+        public string Supplier { get; set; }
+
+        public int DepartmentId { get; set; }
+
+        public DateTime InstallationDate { get; set; }
+
+        public DateTime CalibrationDate { get; set; }
+
+        public DateTime NextCalibrationDate { get; set; }
+
+        public string CalibrationFrequency { get; set; }
+
+        public string ServiceType { get; set; }
+
+        public string AssignedUserId { get; set; }
+
+        public int? ServiceProviderId { get; set; }
+
+        public string Status { get; set; }
+
+        public string MachineLocation { get; set; }
+
+        public string Remarks { get; set; }
+
+        public DateTime CreatedDate { get; set; } = DateTime.Now;
+
+        // Navigation properties
+        [ForeignKey("DepartmentId")]
+        public virtual Department Department { get; set; }
+
+        [ForeignKey("AssignedUserId")]
+        public virtual ApplicationUser AssignedUser { get; set; }
+
+        [ForeignKey("ServiceProviderId")]
+        public virtual ServiceProvider ServiceProvider { get; set; }
+
+        public virtual ICollection<CalibrationHistory> CalibrationHistories { get; set; } = new List<CalibrationHistory>();
+        public virtual ICollection<MaintenanceRequest> MaintenanceRequests { get; set; } = new List<MaintenanceRequest>();
+    }
+}

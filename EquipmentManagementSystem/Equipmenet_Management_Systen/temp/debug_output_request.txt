@@ -1,0 +1,1 @@
+Requesting Debug Output window content to gather DB queries and runtime messages related to the MySql exception. Reason: Need SQL executed by EF Core or MySqlConnector traces to locate which LINQ/EF query referenced 'SupervisorId' column and which model mapping caused it.

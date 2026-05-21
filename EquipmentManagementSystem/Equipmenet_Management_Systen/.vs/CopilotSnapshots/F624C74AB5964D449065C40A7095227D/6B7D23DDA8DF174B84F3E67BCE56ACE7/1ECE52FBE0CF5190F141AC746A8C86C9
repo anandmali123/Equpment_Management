@@ -1,0 +1,132 @@
+﻿using Equipmenet_Management_Systen.Data;
+using Equipmenet_Management_Systen.Models;
+using Equipmenet_Management_Systen.Services;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
+
+namespace Equipmenet_Management_Systen.Controllers
+{
+    [Authorize(Roles = "PurchaseManager,MaintenanceIncharge,ClientHead")]
+    public class ServiceProviderController : Controller
+    {
+        private readonly ApplicationDbContext _context;
+        private readonly IServiceProviderService _serviceProviderService;
+
+        public ServiceProviderController(
+            ApplicationDbContext context,
+            IServiceProviderService serviceProviderService)
+        {
+            _context = context;
+            _serviceProviderService = serviceProviderService;
+        }
+
+        public async Task<IActionResult> Index()
+        {
+            var providers = await _serviceProviderService.GetAllProvidersAsync();
+            return View(providers);
+        }
+
+        public IActionResult Create()
+        {
+            PopulateDropdowns();
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(ServiceProvider serviceProvider)
+        {
+            if (ModelState.IsValid)
+            {
+                if (await _serviceProviderService.CreateProviderAsync(serviceProvider))
+                {
+                    TempData["Success"] = "Service Provider added successfully!";
+                    return RedirectToAction(nameof(Index));
+                }
+            }
+
+            PopulateDropdowns();
+            return View(serviceProvider);
+        }
+
+        public async Task<IActionResult> Edit(int id)
+        {
+            var provider = await _serviceProviderService.GetProviderByIdAsync(id);
+            if (provider == null)
+                return NotFound();
+
+            PopulateDropdowns();
+            return View(provider);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(ServiceProvider serviceProvider)
+        {
+            if (ModelState.IsValid)
+            {
+                if (await _serviceProviderService.UpdateProviderAsync(serviceProvider))
+                {
+                    TempData["Success"] = "Service Provider updated successfully!";
+                    return RedirectToAction(nameof(Index));
+                }
+            }
+
+            PopulateDropdowns();
+            return View(serviceProvider);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Delete(int id)
+        {
+            if (await _serviceProviderService.DeleteProviderAsync(id))
+            {
+                TempData["Success"] = "Service Provider deleted successfully!";
+            }
+            else
+            {
+                TempData["Error"] = "Failed to delete Service Provider!";
+            }
+
+            return RedirectToAction(nameof(Index));
+        }
+
+        [Authorize(Roles = "ClientHead")]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Approve(int id)
+        {
+            if (await _serviceProviderService.ApproveProviderAsync(id, User.Identity.Name))
+            {
+                TempData["Success"] = "Service Provider approved successfully!";
+            }
+            else
+            {
+                TempData["Error"] = "Failed to approve Service Provider!";
+            }
+
+            return RedirectToAction(nameof(Index));
+        }
+
+        public async Task<IActionResult> PendingApprovals()
+        {
+            var pending = await _context.ServiceProviders
+                .Where(sp => sp.ApprovalStatus == "Pending")
+                .ToListAsync();
+
+            return View(pending);
+        }
+
+        private void PopulateDropdowns()
+        {
+            ViewBag.ServiceTypes = new SelectList(
+                new[] { "Calibration", "Preventive Maintenance", "Breakdown Maintenance", "Both Calibration & Maintenance" });
+
+            ViewBag.ApprovalStatuses = new SelectList(
+                new[] { "Pending", "Approved", "Rejected" });
+        }
+    }
+}

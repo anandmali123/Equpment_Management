@@ -1,0 +1,757 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|d:\\app\\equipmentmanagementsystem\\equipmenet_management_systen\\pages\\admin\\usermanagement.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|solutionrelative:pages\\admin\\usermanagement.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|d:\\app\\equipmentmanagementsystem\\equipmenet_management_systen\\pages\\dashboard\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|solutionrelative:pages\\dashboard\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|d:\\app\\equipmentmanagementsystem\\equipmenet_management_systen\\pages\\dashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|solutionrelative:pages\\dashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|d:\\app\\equipmentmanagementsystem\\equipmenet_management_systen\\pages\\account\\login.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|solutionrelative:pages\\account\\login.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|d:\\app\\equipmentmanagementsystem\\equipmenet_management_systen\\models\\equipment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|solutionrelative:models\\equipment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|d:\\app\\equipmentmanagementsystem\\equipmenet_management_systen\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|d:\\app\\equipmentmanagementsystem\\equipmenet_management_systen\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|d:\\app\\equipmentmanagementsystem\\equipmenet_management_systen\\pages\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|solutionrelative:pages\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|d:\\app\\equipmentmanagementsystem\\equipmenet_management_systen\\code_examples.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|solutionrelative:code_examples.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|d:\\app\\equipmentmanagementsystem\\equipmenet_management_systen\\pages\\account\\register.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|solutionrelative:pages\\account\\register.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|d:\\app\\equipmentmanagementsystem\\equipmenet_management_systen\\pages\\admin\\usermanagement.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|solutionrelative:pages\\admin\\usermanagement.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|d:\\app\\equipmentmanagementsystem\\equipmenet_management_systen\\build_plan.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|solutionrelative:build_plan.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|d:\\app\\equipmentmanagementsystem\\equipmenet_management_systen\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|solutionrelative:views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|d:\\app\\equipmentmanagementsystem\\equipmenet_management_systen\\pages\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|solutionrelative:pages\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|d:\\app\\equipmentmanagementsystem\\equipmenet_management_systen\\models\\maintenancerequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|solutionrelative:models\\maintenancerequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|d:\\app\\equipmentmanagementsystem\\equipmenet_management_systen\\models\\department.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|solutionrelative:models\\department.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|d:\\app\\equipmentmanagementsystem\\equipmenet_management_systen\\models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|solutionrelative:models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|d:\\app\\equipmentmanagementsystem\\equipmenet_management_systen\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|solutionrelative:data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|d:\\app\\equipmentmanagementsystem\\equipmenet_management_systen\\migrations\\applicationdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|solutionrelative:migrations\\applicationdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|d:\\app\\equipmentmanagementsystem\\equipmenet_management_systen\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|d:\\app\\equipmentmanagementsystem\\equipmenet_management_systen\\controllers\\serviceprovidercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|solutionrelative:controllers\\serviceprovidercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|d:\\app\\equipmentmanagementsystem\\equipmenet_management_systen\\views\\department\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|solutionrelative:views\\department\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|d:\\app\\equipmentmanagementsystem\\equipmenet_management_systen\\views\\serviceprovider\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|solutionrelative:views\\serviceprovider\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|d:\\app\\equipmentmanagementsystem\\equipmenet_management_systen\\views\\serviceprovider\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|solutionrelative:views\\serviceprovider\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|d:\\app\\equipmentmanagementsystem\\equipmenet_management_systen\\views\\serviceprovider\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|solutionrelative:views\\serviceprovider\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|d:\\app\\equipmentmanagementsystem\\equipmenet_management_systen\\views\\department\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|solutionrelative:views\\department\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|d:\\app\\equipmentmanagementsystem\\equipmenet_management_systen\\views\\department\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|solutionrelative:views\\department\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|d:\\app\\equipmentmanagementsystem\\equipmenet_management_systen\\pages\\equipment\\create.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|solutionrelative:pages\\equipment\\create.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|d:\\app\\equipmentmanagementsystem\\equipmenet_management_systen\\role_based_system.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|solutionrelative:role_based_system.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|d:\\app\\equipmentmanagementsystem\\equipmenet_management_systen\\migration_guide.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|solutionrelative:migration_guide.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|d:\\app\\equipmentmanagementsystem\\equipmenet_management_systen\\role_quick_reference.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|solutionrelative:role_quick_reference.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|d:\\app\\equipmentmanagementsystem\\equipmenet_management_systen\\implementation_summary.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|solutionrelative:implementation_summary.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|d:\\app\\equipmentmanagementsystem\\equipmenet_management_systen\\readme_complete.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|solutionrelative:readme_complete.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|d:\\app\\equipmentmanagementsystem\\equipmenet_management_systen\\visual_guide.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|solutionrelative:visual_guide.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|d:\\app\\equipmentmanagementsystem\\equipmenet_management_systen\\deployment_checklist.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|solutionrelative:deployment_checklist.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|d:\\app\\equipmentmanagementsystem\\equipmenet_management_systen\\documentation_index.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|solutionrelative:documentation_index.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|d:\\app\\equipmentmanagementsystem\\equipmenet_management_systen\\pages\\equipment\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|solutionrelative:pages\\equipment\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|d:\\app\\equipmentmanagementsystem\\equipmenet_management_systen\\pages\\equipment\\edit.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|solutionrelative:pages\\equipment\\edit.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|d:\\app\\equipmentmanagementsystem\\equipmenet_management_systen\\pages\\equipment\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|solutionrelative:pages\\equipment\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|d:\\app\\equipmentmanagementsystem\\equipmenet_management_systen\\pages\\equipment\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|solutionrelative:pages\\equipment\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|d:\\app\\equipmentmanagementsystem\\equipmenet_management_systen\\pages\\equipment\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|solutionrelative:pages\\equipment\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|d:\\app\\equipmentmanagementsystem\\equipmenet_management_systen\\pages\\maintenance\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|solutionrelative:pages\\maintenance\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|d:\\app\\equipmentmanagementsystem\\equipmenet_management_systen\\pages\\maintenance\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|solutionrelative:pages\\maintenance\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|d:\\app\\equipmentmanagementsystem\\equipmenet_management_systen\\build_complete.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|solutionrelative:build_complete.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|d:\\app\\equipmentmanagementsystem\\equipmenet_management_systen\\quickstart.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|solutionrelative:quickstart.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|d:\\app\\equipmentmanagementsystem\\equipmenet_management_systen\\temp\\debug_output_request.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{29F54CB0-1F9C-43D3-CDBC-BC3BAF46596E}|Equipmenet_Management_Systen.csproj|solutionrelative:temp\\debug_output_request.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAHoAAAAAAAAAAAArwIUAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-05T06:12:05.324Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UserManagement.cshtml.cs",
+              "DocumentMoniker": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\Pages\\Admin\\UserManagement.cshtml.cs",
+              "RelativeDocumentMoniker": "Pages\\Admin\\UserManagement.cshtml.cs",
+              "ToolTip": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\Pages\\Admin\\UserManagement.cshtml.cs",
+              "RelativeToolTip": "Pages\\Admin\\UserManagement.cshtml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-05T06:11:48.37Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Equipment.cs",
+              "DocumentMoniker": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\Models\\Equipment.cs",
+              "RelativeDocumentMoniker": "Models\\Equipment.cs",
+              "ToolTip": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\Models\\Equipment.cs",
+              "RelativeToolTip": "Models\\Equipment.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAEwDMAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-06T04:53:52.543Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
+              "ToolTip": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-10T05:25:19.429Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml.cs",
+              "DocumentMoniker": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\Pages\\Dashboard\\Index.cshtml.cs",
+              "RelativeDocumentMoniker": "Pages\\Dashboard\\Index.cshtml.cs",
+              "ToolTip": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\Pages\\Dashboard\\Index.cshtml.cs",
+              "RelativeToolTip": "Pages\\Dashboard\\Index.cshtml.cs",
+              "ViewState": "AgIAAJYAAAAAAAAAAAAswLIAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-05T06:11:32.793Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Register.cshtml",
+              "DocumentMoniker": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\Pages\\Account\\Register.cshtml",
+              "RelativeDocumentMoniker": "Pages\\Account\\Register.cshtml",
+              "ToolTip": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\Pages\\Account\\Register.cshtml",
+              "RelativeToolTip": "Pages\\Account\\Register.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-05T06:11:05.557Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "CODE_EXAMPLES.md",
+              "DocumentMoniker": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\CODE_EXAMPLES.md",
+              "RelativeDocumentMoniker": "CODE_EXAMPLES.md",
+              "ToolTip": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\CODE_EXAMPLES.md",
+              "RelativeToolTip": "CODE_EXAMPLES.md",
+              "ViewState": "AgIAALcAAAAAAAAAAAAiwMoAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2026-05-05T06:14:48.914Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\Pages\\Dashboard\\Index.cshtml",
+              "RelativeDocumentMoniker": "Pages\\Dashboard\\Index.cshtml",
+              "ToolTip": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\Pages\\Dashboard\\Index.cshtml",
+              "RelativeToolTip": "Pages\\Dashboard\\Index.cshtml",
+              "ViewState": "AgIAACwBAAAAAAAAAAAkwFMBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-05T06:12:37.295Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Login.cshtml.cs",
+              "DocumentMoniker": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\Pages\\Account\\Login.cshtml.cs",
+              "RelativeDocumentMoniker": "Pages\\Account\\Login.cshtml.cs",
+              "ToolTip": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\Pages\\Account\\Login.cshtml.cs",
+              "RelativeToolTip": "Pages\\Account\\Login.cshtml.cs",
+              "ViewState": "AgIAAEgAAAAAAAAAAAAkwGAAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-10T06:50:24.493Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "UserManagement.cshtml",
+              "DocumentMoniker": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\Pages\\Admin\\UserManagement.cshtml",
+              "RelativeDocumentMoniker": "Pages\\Admin\\UserManagement.cshtml",
+              "ToolTip": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\Pages\\Admin\\UserManagement.cshtml",
+              "RelativeToolTip": "Pages\\Admin\\UserManagement.cshtml",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAAAUAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-05T06:11:59.175Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Register.cshtml.cs",
+              "DocumentMoniker": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\Pages\\Account\\Register.cshtml.cs",
+              "RelativeDocumentMoniker": "Pages\\Account\\Register.cshtml.cs",
+              "ToolTip": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\Pages\\Account\\Register.cshtml.cs",
+              "RelativeToolTip": "Pages\\Account\\Register.cshtml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-05T06:11:01.093Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "MaintenanceRequest.cs",
+              "DocumentMoniker": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\Models\\MaintenanceRequest.cs",
+              "RelativeDocumentMoniker": "Models\\MaintenanceRequest.cs",
+              "ToolTip": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\Models\\MaintenanceRequest.cs",
+              "RelativeToolTip": "Models\\MaintenanceRequest.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAA6wB4AAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-06T04:53:41.933Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Privacy.cshtml",
+              "DocumentMoniker": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\Views\\Home\\Privacy.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\Privacy.cshtml",
+              "ToolTip": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\Views\\Home\\Privacy.cshtml",
+              "RelativeToolTip": "Views\\Home\\Privacy.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-10T05:14:58.337Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "BUILD_PLAN.md",
+              "DocumentMoniker": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\BUILD_PLAN.md",
+              "RelativeDocumentMoniker": "BUILD_PLAN.md",
+              "ToolTip": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\BUILD_PLAN.md",
+              "RelativeToolTip": "BUILD_PLAN.md",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2026-05-05T06:18:45.812Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Department.cs",
+              "DocumentMoniker": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\Models\\Department.cs",
+              "RelativeDocumentMoniker": "Models\\Department.cs",
+              "ToolTip": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\Models\\Department.cs",
+              "RelativeToolTip": "Models\\Department.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-10T06:47:20.63Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\Pages\\Account\\Login.cshtml",
+              "RelativeDocumentMoniker": "Pages\\Account\\Login.cshtml",
+              "ToolTip": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\Pages\\Account\\Login.cshtml",
+              "RelativeToolTip": "Pages\\Account\\Login.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-10T06:47:48.814Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\Data\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "Data\\ApplicationDbContext.cs",
+              "ToolTip": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\Data\\ApplicationDbContext.cs",
+              "RelativeToolTip": "Data\\ApplicationDbContext.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAAAkwDIAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-05T06:10:44.855Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "ApplicationDbContextModelSnapshot.cs",
+              "DocumentMoniker": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\Migrations\\ApplicationDbContextModelSnapshot.cs",
+              "RelativeDocumentMoniker": "Migrations\\ApplicationDbContextModelSnapshot.cs",
+              "ToolTip": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\Migrations\\ApplicationDbContextModelSnapshot.cs",
+              "RelativeToolTip": "Migrations\\ApplicationDbContextModelSnapshot.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-10T05:44:50.279Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
+              "ToolTip": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACcAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-10T05:13:29.436Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "ApplicationUser.cs",
+              "DocumentMoniker": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\Models\\ApplicationUser.cs",
+              "RelativeDocumentMoniker": "Models\\ApplicationUser.cs",
+              "ToolTip": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\Models\\ApplicationUser.cs",
+              "RelativeToolTip": "Models\\ApplicationUser.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAA6wAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-05T06:10:33.784Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\Views\\ServiceProvider\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\ServiceProvider\\Index.cshtml",
+              "ToolTip": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\Views\\ServiceProvider\\Index.cshtml",
+              "RelativeToolTip": "Views\\ServiceProvider\\Index.cshtml",
+              "ViewState": "AgIAADYAAAAAAAAAAAAkwEoAAACCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-10T05:16:29.008Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\Views\\Department\\Create.cshtml",
+              "RelativeDocumentMoniker": "Views\\Department\\Create.cshtml",
+              "ToolTip": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\Views\\Department\\Create.cshtml",
+              "RelativeToolTip": "Views\\Department\\Create.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-10T05:13:32.729Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\Views\\Department\\Edit.cshtml",
+              "RelativeDocumentMoniker": "Views\\Department\\Edit.cshtml",
+              "ToolTip": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\Views\\Department\\Edit.cshtml",
+              "RelativeToolTip": "Views\\Department\\Edit.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-10T05:14:11.348Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\Views\\Department\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Department\\Index.cshtml",
+              "ToolTip": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\Views\\Department\\Index.cshtml",
+              "RelativeToolTip": "Views\\Department\\Index.cshtml",
+              "ViewState": "AgIAACEAAAAAAAAAAAAkwEgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-10T05:14:22.619Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\Views\\ServiceProvider\\Create.cshtml",
+              "RelativeDocumentMoniker": "Views\\ServiceProvider\\Create.cshtml",
+              "ToolTip": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\Views\\ServiceProvider\\Create.cshtml",
+              "RelativeToolTip": "Views\\ServiceProvider\\Create.cshtml",
+              "ViewState": "AgIAAFcAAAAAAAAAAAAkwH4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-10T05:15:14.164Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\Views\\ServiceProvider\\Edit.cshtml",
+              "RelativeDocumentMoniker": "Views\\ServiceProvider\\Edit.cshtml",
+              "ToolTip": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\Views\\ServiceProvider\\Edit.cshtml",
+              "RelativeToolTip": "Views\\ServiceProvider\\Edit.cshtml",
+              "ViewState": "AgIAAFQAAAAAAAAAAAAkwHsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-10T05:15:45.049Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "ServiceProviderController.cs",
+              "DocumentMoniker": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\Controllers\\ServiceProviderController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ServiceProviderController.cs",
+              "ToolTip": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\Controllers\\ServiceProviderController.cs",
+              "RelativeToolTip": "Controllers\\ServiceProviderController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-10T05:10:40.116Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "debug_output_request.txt",
+              "DocumentMoniker": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\temp\\debug_output_request.txt",
+              "RelativeDocumentMoniker": "temp\\debug_output_request.txt",
+              "ToolTip": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\temp\\debug_output_request.txt",
+              "RelativeToolTip": "temp\\debug_output_request.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAQAQAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2026-05-09T08:49:49.272Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "Create.cshtml.cs",
+              "DocumentMoniker": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\Pages\\Equipment\\Create.cshtml.cs",
+              "RelativeDocumentMoniker": "Pages\\Equipment\\Create.cshtml.cs",
+              "ToolTip": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\Pages\\Equipment\\Create.cshtml.cs",
+              "RelativeToolTip": "Pages\\Equipment\\Create.cshtml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-05T06:18:52.884Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "BUILD_COMPLETE.md",
+              "DocumentMoniker": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\BUILD_COMPLETE.md",
+              "RelativeDocumentMoniker": "BUILD_COMPLETE.md",
+              "ToolTip": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\BUILD_COMPLETE.md",
+              "RelativeToolTip": "BUILD_COMPLETE.md",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADoBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2026-05-06T04:56:41.089Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "QUICKSTART.md",
+              "DocumentMoniker": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\QUICKSTART.md",
+              "RelativeDocumentMoniker": "QUICKSTART.md",
+              "ToolTip": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\QUICKSTART.md",
+              "RelativeToolTip": "QUICKSTART.md",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2026-05-06T04:57:00.934Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\Pages\\Equipment\\Create.cshtml",
+              "RelativeDocumentMoniker": "Pages\\Equipment\\Create.cshtml",
+              "ToolTip": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\Pages\\Equipment\\Create.cshtml",
+              "RelativeToolTip": "Pages\\Equipment\\Create.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAJMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-05T06:19:04.56Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "Edit.cshtml.cs",
+              "DocumentMoniker": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\Pages\\Equipment\\Edit.cshtml.cs",
+              "RelativeDocumentMoniker": "Pages\\Equipment\\Edit.cshtml.cs",
+              "ToolTip": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\Pages\\Equipment\\Edit.cshtml.cs",
+              "RelativeToolTip": "Pages\\Equipment\\Edit.cshtml.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAABBwJYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-05T06:19:18.338Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\Pages\\Equipment\\Edit.cshtml",
+              "RelativeDocumentMoniker": "Pages\\Equipment\\Edit.cshtml",
+              "ToolTip": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\Pages\\Equipment\\Edit.cshtml",
+              "RelativeToolTip": "Pages\\Equipment\\Edit.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAKAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-05T06:19:29.504Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "Index.cshtml.cs",
+              "DocumentMoniker": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\Pages\\Equipment\\Index.cshtml.cs",
+              "RelativeDocumentMoniker": "Pages\\Equipment\\Index.cshtml.cs",
+              "ToolTip": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\Pages\\Equipment\\Index.cshtml.cs",
+              "RelativeToolTip": "Pages\\Equipment\\Index.cshtml.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAABBwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-05T06:19:40.132Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\Pages\\Equipment\\Index.cshtml",
+              "RelativeDocumentMoniker": "Pages\\Equipment\\Index.cshtml",
+              "ToolTip": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\Pages\\Equipment\\Index.cshtml",
+              "RelativeToolTip": "Pages\\Equipment\\Index.cshtml",
+              "ViewState": "AgIAANMAAAAAAAAAAIBJwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-05T06:19:59.723Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "Index.cshtml.cs",
+              "DocumentMoniker": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\Pages\\Maintenance\\Index.cshtml.cs",
+              "RelativeDocumentMoniker": "Pages\\Maintenance\\Index.cshtml.cs",
+              "ToolTip": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\Pages\\Maintenance\\Index.cshtml.cs",
+              "RelativeToolTip": "Pages\\Maintenance\\Index.cshtml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAJgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-05T06:20:19.33Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\Pages\\Maintenance\\Index.cshtml",
+              "RelativeDocumentMoniker": "Pages\\Maintenance\\Index.cshtml",
+              "ToolTip": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\Pages\\Maintenance\\Index.cshtml",
+              "RelativeToolTip": "Pages\\Maintenance\\Index.cshtml",
+              "ViewState": "AgIAAHUAAAAAAAAAAIBJwLoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-05T06:20:32.109Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "DOCUMENTATION_INDEX.md",
+              "DocumentMoniker": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\DOCUMENTATION_INDEX.md",
+              "RelativeDocumentMoniker": "DOCUMENTATION_INDEX.md",
+              "ToolTip": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\DOCUMENTATION_INDEX.md",
+              "RelativeToolTip": "DOCUMENTATION_INDEX.md",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEYBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2026-05-05T06:16:54.231Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "DEPLOYMENT_CHECKLIST.md",
+              "DocumentMoniker": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\DEPLOYMENT_CHECKLIST.md",
+              "RelativeDocumentMoniker": "DEPLOYMENT_CHECKLIST.md",
+              "ToolTip": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\DEPLOYMENT_CHECKLIST.md",
+              "RelativeToolTip": "DEPLOYMENT_CHECKLIST.md",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAKQBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2026-05-05T06:16:22.921Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "VISUAL_GUIDE.md",
+              "DocumentMoniker": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\VISUAL_GUIDE.md",
+              "RelativeDocumentMoniker": "VISUAL_GUIDE.md",
+              "ToolTip": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\VISUAL_GUIDE.md",
+              "RelativeToolTip": "VISUAL_GUIDE.md",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAOwBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2026-05-05T06:15:57.328Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "README_COMPLETE.md",
+              "DocumentMoniker": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\README_COMPLETE.md",
+              "RelativeDocumentMoniker": "README_COMPLETE.md",
+              "ToolTip": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\README_COMPLETE.md",
+              "RelativeToolTip": "README_COMPLETE.md",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAOABAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2026-05-05T06:15:20.536Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "IMPLEMENTATION_SUMMARY.md",
+              "DocumentMoniker": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\IMPLEMENTATION_SUMMARY.md",
+              "RelativeDocumentMoniker": "IMPLEMENTATION_SUMMARY.md",
+              "ToolTip": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\IMPLEMENTATION_SUMMARY.md",
+              "RelativeToolTip": "IMPLEMENTATION_SUMMARY.md",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEIBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2026-05-05T06:14:25.823Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "ROLE_QUICK_REFERENCE.md",
+              "DocumentMoniker": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\ROLE_QUICK_REFERENCE.md",
+              "RelativeDocumentMoniker": "ROLE_QUICK_REFERENCE.md",
+              "ToolTip": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\ROLE_QUICK_REFERENCE.md",
+              "RelativeToolTip": "ROLE_QUICK_REFERENCE.md",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAN4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2026-05-05T06:14:01.395Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "MIGRATION_GUIDE.md",
+              "DocumentMoniker": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\MIGRATION_GUIDE.md",
+              "RelativeDocumentMoniker": "MIGRATION_GUIDE.md",
+              "ToolTip": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\MIGRATION_GUIDE.md",
+              "RelativeToolTip": "MIGRATION_GUIDE.md",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAJkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2026-05-05T06:13:43.323Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "ROLE_BASED_SYSTEM.md",
+              "DocumentMoniker": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\ROLE_BASED_SYSTEM.md",
+              "RelativeDocumentMoniker": "ROLE_BASED_SYSTEM.md",
+              "ToolTip": "D:\\App\\EquipmentManagementSystem\\Equipmenet_Management_Systen\\ROLE_BASED_SYSTEM.md",
+              "RelativeToolTip": "ROLE_BASED_SYSTEM.md",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAMMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2026-05-05T06:13:28.456Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

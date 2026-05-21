@@ -1,0 +1,166 @@
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using Equipmenet_Management_Systen.Data;
+using Equipmenet_Management_Systen.Models;
+using Microsoft.EntityFrameworkCore;
+
+namespace Equipmenet_Management_Systen.Pages.Dashboard
+{
+    [Authorize]
+    public class IndexModel : PageModel
+    {
+        private readonly ApplicationDbContext _context;
+        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly ILogger<IndexModel> _logger;
+
+        public ApplicationUser CurrentUser { get; set; }
+        public IList<string> UserRoles { get; set; } = new List<string>();
+        public int TotalEquipment { get; set; }
+        public int ActiveEquipment { get; set; }
+        public int PendingMaintenance { get; set; }
+        public int OverdueCalibration { get; set; }
+        public List<MaintenanceRequest> RecentRequests { get; set; } = new();
+        public List<ApplicationUser> AssignedUsers { get; set; } = new();
+        public int TotalUsers { get; set; }
+        public int ActiveUsers { get; set; }
+
+        public IndexModel(
+            ApplicationDbContext context,
+            UserManager<ApplicationUser> userManager,
+            ILogger<IndexModel> logger)
+        {
+            _context = context;
+            _userManager = userManager;
+            _logger = logger;
+        }
+
+        public async Task OnGetAsync()
+        {
+            try
+            {
+                // Get current user
+                CurrentUser = await _userManager.GetUserAsync(HttpContext.User);
+                if (CurrentUser == null)
+                {
+                    return;
+                }
+
+                // Load user's role
+                UserRoles = (await _userManager.GetRolesAsync(CurrentUser)).ToList();
+
+                // Update last login
+                CurrentUser.LastLoginAt = DateTime.UtcNow;
+                await _userManager.UpdateAsync(CurrentUser);
+
+                // Load statistics based on role
+                await LoadDashboardDataByRole();
+
+                _logger.LogInformation($"Dashboard loaded for user: {CurrentUser.Email}, Role: {string.Join(", ", UserRoles)}");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error loading dashboard");
+            }
+        }
+
+        private async Task LoadDashboardDataByRole()
+        {
+            if (UserRoles.Contains("PlatformHead"))
+            {
+                // Platform Head sees all data
+                TotalEquipment = await _context.Equipments.CountAsync();
+                ActiveEquipment = await _context.Equipments.Where(e => e.Status == "Active").CountAsync();
+                TotalUsers = await _context.Users.CountAsync();
+                ActiveUsers = await _context.Users.Where(u => u.IsActive).CountAsync();
+            }
+            else if (UserRoles.Contains("PurchaseManager"))
+            {
+                // Purchase Manager sees maintenance and user data
+                PendingMaintenance = await _context.MaintenanceRequests
+                    .Where(m => m.Status == "Pending" || m.Status == "In Progress")
+                    .CountAsync();
+                TotalUsers = await _context.Users.CountAsync();
+                ActiveUsers = await _context.Users.Where(u => u.IsActive).CountAsync();
+            }
+            else if (UserRoles.Contains("MaintenanceIncharge"))
+            {
+                // Maintenance Incharge sees platform head activities and recruitment
+                TotalUsers = await _context.Users.CountAsync();
+                ActiveUsers = await _context.Users.Where(u => u.IsActive).CountAsync();
+                AssignedUsers = await _context.Users
+                    .Where(u => u.SupervisorId == CurrentUser.Id)
+                    .ToListAsync();
+            }
+            else if (UserRoles.Contains("DepartmentHead"))
+            {
+                // Department Head sees their department's equipment and assigned users
+                TotalEquipment = await _context.Equipments
+                    .Where(e => e.DepartmentId == CurrentUser.DepartmentId)
+                    .CountAsync();
+                ActiveEquipment = await _context.Equipments
+                    .Where(e => e.DepartmentId == CurrentUser.DepartmentId && e.Status == "Active")
+                    .CountAsync();
+                AssignedUsers = await _context.Users
+                    .Where(u => u.SupervisorId == CurrentUser.Id)
+                    .ToListAsync();
+            }
+            else if (UserRoles.Contains("User"))
+            {
+                // Regular User sees only their assigned equipment
+                var userEquipment = await _context.Equipments
+                    .Where(e => e.AssignedUserId == CurrentUser.Id)
+                    .ToListAsync();
+                TotalEquipment = userEquipment.Count;
+                ActiveEquipment = userEquipment.Count(e => e.Status == "Active");
+            }
+
+            // Get recent maintenance requests accessible to user
+            RecentRequests = await GetAccessibleMaintenanceRequests();
+        }
+
+        private async Task<List<MaintenanceRequest>> GetAccessibleMaintenanceRequests()
+        {
+            if (UserRoles.Contains("PlatformHead") || UserRoles.Contains("PurchaseManager"))
+            {
+                return await _context.MaintenanceRequests
+                    .Include(m => m.Equipment)
+                    .OrderByDescending(m => m.RequestDate)
+                    .Take(5)
+                    .ToListAsync();
+            }
+            else if (UserRoles.Contains("MaintenanceIncharge") || UserRoles.Contains("DepartmentHead"))
+            {
+                return await _context.MaintenanceRequests
+                    .Include(m => m.Equipment)
+                    .Where(m => m.Equipment.DepartmentId == CurrentUser.DepartmentId)
+                    .OrderByDescending(m => m.RequestDate)
+                    .Take(5)
+                    .ToListAsync();
+            }
+            else
+            {
+                return await _context.MaintenanceRequests
+                    .Include(m => m.Equipment)
+                    .Where(m => m.Equipment.AssignedUserId == CurrentUser.Id)
+                    .OrderByDescending(m => m.RequestDate)
+                    .Take(5)
+                    .ToListAsync();
+            }
+        }
+
+        public async Task OnPostLogoutAsync()
+        {
+            try
+            {
+                var signInManager = HttpContext.RequestServices.GetRequiredService<SignInManager<ApplicationUser>>();
+                await signInManager.SignOutAsync();
+                RedirectToPage("/Account/Login");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error during logout");
+            }
+        }
+    }
+}

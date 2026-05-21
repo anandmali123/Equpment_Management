@@ -1,0 +1,11 @@
+﻿#!/bin/bash
+# Script to add missing columns to the database
+
+mysql -h 127.0.0.1 -u root -ppassword123 EquipmentDB << EOF
+ALTER TABLE AspNetUsers ADD COLUMN IF NOT EXISTS City VARCHAR(100);
+ALTER TABLE AspNetUsers ADD COLUMN IF NOT EXISTS LastLoginAt DATETIME;
+ALTER TABLE CalibrationHistory ADD COLUMN IF NOT EXISTS NextCalibrationDate DATETIME;
+ALTER TABLE CalibrationHistory ADD COLUMN IF NOT EXISTS IsCompleted TINYINT(1) DEFAULT 0;
+EOF
+
+echo "Columns added successfully!"

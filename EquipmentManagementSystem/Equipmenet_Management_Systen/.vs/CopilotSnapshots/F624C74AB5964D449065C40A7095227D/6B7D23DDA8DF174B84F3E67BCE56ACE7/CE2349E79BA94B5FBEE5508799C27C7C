@@ -1,0 +1,18 @@
+﻿{
+  "ConnectionStrings": {
+    "DefaultConnection": "server=localhost;database=equipmentdb;user=root;password=123456"
+  },
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "AllowedHosts": "*",
+  "EmailSettings": {
+    "SmtpServer": "smtp.gmail.com",
+    "SmtpPort": 587,
+    "FromEmail": "yourmail@gmail.com",
+    "FromPassword": "yourapppassword"
+  }
+}

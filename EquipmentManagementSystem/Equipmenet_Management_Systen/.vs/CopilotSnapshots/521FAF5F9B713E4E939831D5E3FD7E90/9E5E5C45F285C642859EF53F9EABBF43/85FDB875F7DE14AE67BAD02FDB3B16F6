@@ -1,0 +1,7 @@
+﻿@using Equipmenet_Management_Systen
+@using Equipmenet_Management_Systen.Models
+@using Equipmenet_Management_Systen.Pages
+@using Equipmenet_Management_Systen.Pages.Account
+@using Equipmenet_Management_Systen.Pages.Dashboard
+@using Equipmenet_Management_Systen.Pages.Equipment
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
